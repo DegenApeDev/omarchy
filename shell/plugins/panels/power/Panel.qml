@@ -38,7 +38,7 @@ Panel {
   // one (an icon and percentage each, in UPower order). Vertical bars and
   // single-battery systems retain the compact aggregate display device.
   readonly property string buttonText: {
-    if (batteries.length > 1 && !vertical) {
+    if (batteries.length > 1 && !button.vertical) {
       var parts = []
       for (var i = 0; i < batteries.length; i++) {
         var device = batteries[i]
@@ -46,15 +46,15 @@ Panel {
       }
       return parts.join(" · ")
     }
-    if (root.showPercentage && !vertical) return Math.round(root.batteryFraction * 100) + "% " + root.batteryIcon()
+    if (root.showPercentage && !button.vertical) return Math.round(root.batteryFraction * 100) + "% " + root.batteryIcon()
     return root.batteryIcon()
   }
 
   // Bar button slot width, in icon slots. Each percentage block needs the same
   // doubled slot the single-battery percentage view uses, scaled per battery.
-  readonly property int buttonSlotScale: batteries.length > 1 && !vertical
+  readonly property int buttonSlotScale: batteries.length > 1 && !button.vertical
     ? batteries.length * 2
-    : (showPercentage && !vertical ? 2 : 1)
+    : (showPercentage && !button.vertical ? 2 : 1)
 
   function upowerStates() {
     return {

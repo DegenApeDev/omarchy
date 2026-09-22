@@ -74,8 +74,8 @@ assert(/UPower\.devices\.values/.test(panelSource), 'power enumerates the Quicks
 assert(/root\.batteries\.length > 1/.test(panelSource), 'power only shows the per-battery breakdown on multi-battery systems')
 assert(/PanelSectionHeader[\s\S]*?text: "BATTERIES"/.test(panelSource), 'power heads the per-battery breakdown')
 assert(/Model\.batteryIcon\(device, root\.discharging, upowerStates\(\)\)/.test(panelSource), 'power lists each battery in the bar button')
-assert(/batteries\.length > 1 && !vertical/.test(panelSource), 'power keeps vertical bars on the compact aggregate battery')
-assert(/showPercentage && !vertical \? 2 : 1/.test(panelSource), 'power keeps percentage sizing compact on vertical bars')
+assert(/batteries\.length > 1 && !button\.vertical/.test(panelSource), 'power keeps vertical bars on the compact aggregate battery')
+assert(/showPercentage && !button\.vertical \? 2 : 1/.test(panelSource), 'power keeps percentage sizing compact on vertical bars')
 assert(/batteries\.length \* 2/.test(panelSource), 'power widens the bar button for multiple batteries')
 assert(/readonly property var batteries: collectBatteries\(\)/.test(panelSource), 'power reacts to changes in the UPower battery list')
 
